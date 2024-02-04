@@ -1,0 +1,54 @@
+$topnav-background-color: rgb(215, 137, 179);
+$letter-color: #fff;
+
+
+:host {
+  .navbar {
+    margin: 5px 5px 0 5px;
+    border-radius: 10px;
+    background-color: $topnav-background-color;
+
+    .navbar-brand {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .nav-item > a {
+      color: $letter-color;
+
+      &:hover {
+        color: $letter-color;
+      }
+    }
+  }
+
+  .messages {
+    width: 200px;
+
+    .msg-header {
+      font-size: 15px;
+      font-weight: 600;
+      padding-top: 5px;
+      padding-left: 10px;
+    }
+
+    .media {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 5px;
+      font-size: 14px;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.department-icon {
+  color: white;
+}
+
+.company-logo {
+  height: 100%;
+  max-height: 40px;
+}

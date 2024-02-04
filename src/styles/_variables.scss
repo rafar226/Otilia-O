@@ -1,0 +1,16 @@
+// height
+$action-toolbar-height: 135px;
+$action-toolbar-max700px-width: 145px;
+$action-toolbar-min1900px-width: 115px;
+$action-toolbar-min3000px-width: 80px;
+
+//colors
+$colors: (
+  primary: #0e1030,
+  secondary: #336799,
+);
+
+$primary-color: map-get($colors, primary);
+$secondary-color: map-get($colors, secondary);
+$blue: rgb(35, 168, 242);
+$body-background-color: #ededee;

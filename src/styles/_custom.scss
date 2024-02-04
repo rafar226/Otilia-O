@@ -1,0 +1,54 @@
+//DINPro regular
+@font-face {
+  font-family: DINPro;
+  src: url(../assets/fonts/DINPro-Medium.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: DINPro;
+  src: url(../assets/fonts/DINPro-MediumItalic.woff) format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+//DINPro bold
+@font-face {
+  font-family: DINPro;
+  src: url(../assets/fonts/DINPro-Bold.woff) format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: DINPro;
+  src: url(../assets/fonts/DINPro-BoldItalic.woff) format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+//DINPro light
+@font-face {
+  font-family: DINPro;
+  src: url(../assets/fonts/DINPro-Light.woff) format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: DINPro;
+  src: url(../assets/fonts/DINPro-LightItalic.woff) format('woff');
+  font-weight: 200;
+  font-style: italic;
+}
+//DINPro thin
+@font-face {
+  font-family: DINPro;
+  src: url(../assets/fonts/DINPro.woff) format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: DINPro;
+  src: url(../assets/fonts/DINPro-Italic.woff) format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+
+$font-family-base: DINPro, 'Segoe UI';

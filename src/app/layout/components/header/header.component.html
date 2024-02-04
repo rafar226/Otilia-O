@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLinkActive]="['router-link-active']" routerLink="/">
+      Otilia O.
+    </a>
+    <!-- <img [src]="companyLogo" class="company-logo" alt="" /> -->
+    <button (click)="toggleSidebar()" class="navbar-toggler" type="button">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <i aria-hidden="true" class="fa fa-bars text-muted"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" tabindex="0" ngbDropdownToggle id="languageDropdown" role="button">
+            <i class="fa fa-language"></i>
+              Language
+            <b class="caret"></b>
+          </a>
+        </li>
+        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+          <a class="nav-link" tabindex="0" ngbDropdownToggle id="myAccountDropdown" role="button">
+            <i class="fa fa-user"></i>
+            User
+            <b class="caret"></b>
+          </a>
+          <div ngbDropdownMenu aria-labelledby="myAccountDropdown" class="dropdown-menu">
+            <a ngbDropdownItem href="javascript:void(0)">
+              <i class="fa-solid fa-fw fa-info"></i>
+              About
+            </a>
+            <a ngbDropdownItem [routerLink]="['/login']" >
+              <i class="fa-solid fa-fw fa-power-off"></i>
+              LogOut
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
