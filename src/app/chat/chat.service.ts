@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { OpenAI} from 'openai';
 import { Observable, Subject, filter, from, map } from 'rxjs';
 import { Conversation } from './conversation.model';
+import { openiaEnvironment } from '../environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ChatService {
   currentConversation: Conversation[] = [];
 
   openai = new OpenAI({
-    apiKey: "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",
+    apiKey: openiaEnvironment.apiKey,
     dangerouslyAllowBrowser: true
   });
 
