@@ -6,8 +6,8 @@ $action-toolbar-min3000px-width: 80px;
 
 //colors
 $colors: (
-  primary: #0e1030,
-  secondary: #336799,
+  primary: rgb(215, 137, 179),
+  secondary: rgb(179, 82, 235)
 );
 
 $primary-color: map-get($colors, primary);
