@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ChatService } from './chat.service';
 import { Conversation } from './conversation.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
