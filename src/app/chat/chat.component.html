@@ -2,27 +2,33 @@
   <app-option-bubbles class="bubbles"></app-option-bubbles>
 
   <div class="chat-container">
+
     <div class="text">
         <div class="chat-text" id="chat">
           <div class="welcome-text">
-            <!-- <div class="welcome-card-text"> -->
               <span class="icon-chat"><img src="./../../assets/images/icon.png" alt=""></span>
               <p>Bienvenida, estoy para acompañarte. ¿En que puedo ayduarte?</p>
               <a>{{ currentTime }}</a>
-            <!-- </div> -->
           </div>
 
           <ng-container *ngIf="currentConversation">
-            <div *ngFor="let chat of currentConversation" [ngClass]="chat.role === 'openia' ? 'openia' : 'user'">
-              <span class="icon-chat"><img src="./../../assets/images/icon.png" alt="" *ngIf="chat.role === 'openia'"></span>
-              <span class="icon-user" *ngIf="chat.role === 'user'"><i class="fa-solid fa-user"></i></span>
+            <ul>
+              <li *ngFor="let chat of currentConversation">
+                <div  [ngClass]="chat.role === 'openia' ? 'openia' : 'user'">
 
-              <a class="text-conversation">{{ chat.text }}</a>
-              <span class="timer">{{ chat.time }}</span>
-            </div>
+                  <span class="icon-chat"><img src="./../../assets/images/icon.png" alt="" *ngIf="chat.role === 'openia'"></span>
+                  <span class="icon-user" *ngIf="chat.role === 'user'"><i class="fa-solid fa-user"></i></span>
+
+                  <a class="text-conversation">{{ chat.text }}</a>
+                  <span class="timer">{{ chat.time }}</span>
+                </div>
+              </li>
+            </ul>
+
           </ng-container>
         </div>
     </div>
+
     <div class="input-container">
       <input type="text" class="input" placeholder="Escribe aquí tu consulta" [(ngModel)]="newMessage" (keyup.enter)="send(newMessage)">
       <div class="icon-container">
@@ -31,5 +37,6 @@
         <span class="icon-chat"><i class="fa-solid fa-image"></i></span>
       </div>
     </div>
+
   </div>
 </div>
