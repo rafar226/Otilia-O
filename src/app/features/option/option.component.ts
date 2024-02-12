@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { ProfessionalService } from '../features/professional/professional.service';
+import { ProfessionalService } from '../professional/professional.service';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-option-bubbles',
-  templateUrl: './option-bubbles.component.html',
-  styleUrls: ['./option-bubbles.component.scss']
+  selector: 'app-option',
+  templateUrl: './option.component.html',
+  styleUrls: ['./option.component.scss']
 })
-export class OptionBubblesComponent {
+export class OptionComponent {
 
   currentProfessional: any;
   mobile!: boolean;

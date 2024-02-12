@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { OpenAI} from 'openai';
 import { Observable, Subject, filter, from, map } from 'rxjs';
 import { Conversation } from './conversation.model';
-import { openiaEnvironment } from '../environments/environments';
+import { openiaEnvironment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root'

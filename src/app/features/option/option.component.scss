@@ -1,0 +1,31 @@
+$primary: rgb(215, 137, 179);
+$primary-light: rgb(179, 82, 235);
+
+.container-all {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  height: 100%;
+
+    .professional-container {
+      width: 95%;
+      height: 150px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+      padding: 15px;
+      box-shadow: 2px 2px 10px lightgrey;
+      border: 1px solid lightgrey;
+      border-radius: 10px;
+
+        i {
+          margin-left: 10px;
+        }
+
+        p {
+          width: 100%;
+          margin: auto;
+        }
+    }
+}
