@@ -1,7 +1,12 @@
 
 <div class="container-all">
-  <div class="professional-container" (click)="openProfessionalLookup()">
-      <i class="fa-solid fa-user-tie"></i>
-      <p>Especialistas</p>
+  <div class="professional-container">
+      <div class="options" >
+        <span class="option" *ngFor="let option of options">
+          <p class="option-text"> {{ option.text }} </p>
+          <img src="{{ option.img }}" alt="{{ option.alt }}" class="option-img">
+        </span>
+      </div>
+      <button class="btn find-button" (click)="openProfessionalLookup()">Encuentra el especialista ideal para vos</button>
   </div>
 </div>

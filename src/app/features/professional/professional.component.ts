@@ -25,9 +25,11 @@ export class ProfessionalComponent {
   ]
 
   professions = [
-    "Obstetra",
-    "Couch",
-    "Pediatra"
+    "Obstetricia",
+    "Psicologia",
+    "Yoga",
+    "Instructor prenatal",
+    "Fisioterapia"
   ]
 
   constructor(

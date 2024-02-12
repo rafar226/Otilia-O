@@ -13,8 +13,32 @@ export class OptionComponent {
   mobile!: boolean;
 
   options = [
-    "Quienes somos",
-    "Como podemos ayudarte"
+    {
+      text: 'Yoga',
+      img: './../../../assets/images/yoga.png',
+      alt: 'yoga'
+    },
+    {
+      text: 'Doctor',
+      img: './../../../assets/images/doctor.jpg',
+      alt: 'doctor'
+    },
+    {
+      text: 'Prearador prenatal',
+      img: './../../../assets/images/preparador.jpg',
+      alt: 'Preparador prenatal'
+    },
+    {
+      text: 'Psicologia',
+      img: './../../../assets/images/psicologia.jpg',
+      alt: 'psicologia'
+    },
+    {
+      text: 'Fisioterapia',
+      img: './../../../assets/images/fisio.jpg',
+      alt: 'fisio'
+    }
+
   ];
 
   constructor(
