@@ -1,18 +1,15 @@
 $header-height: 80px;
-$professional-container: 200px;
+$professional-container: 170px;
 
 * {
   background-color: white;
+  max-height: calc(100vh - $header-height);
 }
 
 .professional-container {
   height: $professional-container;
-  // display: flex;
-  // flex-wrap: wrap;
-  // border: 1px solid red;
 }
 
-.chat-container {
-  height: calc(100vh - $header-height - $professional-container);
-  // border: 1px solid green;
-}
+// .chat-container {
+//   height: calc(100vh - $header-height - $professional-container);
+// }

@@ -6,7 +6,7 @@ $secundary: rgb(159, 77, 206);
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
-  height: 100%;
+  height: calc(100vh - 55px - 185px);
 
   .chat-container {
     width: 95%;
@@ -48,10 +48,6 @@ $secundary: rgb(159, 77, 206);
     border-radius: 10px;
   }
 }
-
-// ul {
-//   list-style: none;
-// }
 
 li {
   display: flow-root;
@@ -113,10 +109,7 @@ li {
   div {
     height: auto;
     border: 1px solid lightgray;
-
-    // box-shadow: 1px 1px 1px lightgrey;
     margin-bottom: 10px;
-    // width: fit-content;
     padding: 0 15px 0 0;
     border-radius: 10px;
     display: flex;

@@ -3,8 +3,11 @@
   <div class="professional-container">
       <div class="options" >
         <span class="option" *ngFor="let option of options">
-          <p class="option-text"> {{ option.text }} </p>
-          <img src="{{ option.img }}" alt="{{ option.alt }}" class="option-img">
+          <div class="option-container">
+            <p class="option-text"> Ver </p>
+            <img src="{{ option.img }}" alt="{{ option.alt }}" class="option-img">
+          </div>
+          <p class="span-text"> {{ option.text }} </p>
         </span>
       </div>
       <button class="btn find-button" (click)="openProfessionalLookup()">Encuentra el especialista ideal para vos</button>

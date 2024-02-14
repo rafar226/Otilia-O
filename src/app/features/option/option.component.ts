@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ProfessionalService } from '../professional/professional.service';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-option',
@@ -16,7 +15,7 @@ export class OptionComponent {
     {
       text: 'Yoga',
       img: './../../../assets/images/yoga.png',
-      alt: 'yoga'
+      alt: 'yoga',
     },
     {
       text: 'Doctor',
@@ -24,9 +23,9 @@ export class OptionComponent {
       alt: 'doctor'
     },
     {
-      text: 'Prearador prenatal',
+      text: 'Prearador',
       img: './../../../assets/images/preparador.jpg',
-      alt: 'Preparador prenatal'
+      alt: 'Preparador'
     },
     {
       text: 'Psicologia',
@@ -42,25 +41,10 @@ export class OptionComponent {
   ];
 
   constructor(
-    private professionalService: ProfessionalService,
-    config: NgbCarouselConfig) {
-		// customize default values of carousels used by this component tree
-		// config.interval = 10000;
-		// config.wrap = false;
-		// config.keyboard = false;
-		// config.pauseOnHover = false;
-	}
+    private professionalService: ProfessionalService)
+    {}
 
   ngOnInit() {
-    // if (window.screen.width >= 900) { // 768px portrait
-    //   this.mobile = true;
-    //   console.log('1', this.mobile)
-    // }
-    // if (window.screen.width < 900) { // 768px portrait
-    //   this.mobile = true;
-    //   console.log('2', this.mobile)
-
-    // }
   }
 
   openProfessionalLookup() {
