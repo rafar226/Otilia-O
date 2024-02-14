@@ -9,6 +9,7 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { LoaderComponent } from '../shared/loader';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    LoaderComponent
   ],
   declarations: [LayoutComponent, HeaderComponent, SidebarComponent],
   providers: [],

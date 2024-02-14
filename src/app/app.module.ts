@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfessionalComponent } from './features/professional/professional.component';
+import { LoaderComponent } from './shared/loader';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProfessionalComponent } from './features/professional/professional.comp
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LoaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

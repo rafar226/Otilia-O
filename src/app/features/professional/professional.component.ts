@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfessionalService } from 'src/app/features/professional/professional.service';
+import { LoaderService } from 'src/app/shared/loader';
 
 @Component({
   selector: 'app-professional',
@@ -8,8 +9,6 @@ import { ProfessionalService } from 'src/app/features/professional/professional.
   styleUrls: ['./professional.component.scss']
 })
 export class ProfessionalComponent {
-
-  searchOff: boolean = true;
 
   languageOptions = [
     "Español",
@@ -34,7 +33,8 @@ export class ProfessionalComponent {
 
   constructor(
     private activeModal: NgbActiveModal,
-    private professionalService: ProfessionalService) {
+    private professionalService: ProfessionalService,
+    private loaderService: LoaderService) {
   }
 
   closeModal() {
@@ -46,7 +46,8 @@ export class ProfessionalComponent {
   }
 
   search() {
-    this.searchOff = false;
+    this.loaderService.showSpinner()
+    this.loaderService.showText('Estamos buscando un profesional para ti')
   }
 
 }
