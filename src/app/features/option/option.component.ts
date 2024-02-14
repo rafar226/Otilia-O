@@ -33,7 +33,7 @@ export class OptionComponent {
       alt: 'psicologia'
     },
     {
-      text: 'Fisioterapia',
+      text: 'Fisio',
       img: './../../../assets/images/fisio.jpg',
       alt: 'fisio'
     }

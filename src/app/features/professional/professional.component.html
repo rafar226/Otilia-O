@@ -1,15 +1,100 @@
 <div class="modal-header">
-  <h4 class="modal-title">Seleccionar professional </h4>
+  <h4 class="modal-title">Seleccionar profesional </h4>
   <button type="button" class="btn-close" aria-label="Close" (click)="dismissModal()"></button>
 </div>
 <div class="modal-body">
   <div class="container">
 
     <div class="search-container">
+      <div class="option">
+        <label for="year">Idioma: </label>
 
+        <select formControlName="year" id="year">
+          <option value="">All</option>
+          <option *ngFor="let languageOption of languageOptions" [value]="languageOption">{{ languageOption }}</option>
+        </select>
+      </div>
+
+      <span class="span-lateral"></span>
+
+      <div class="option">
+        <label for="year">País: </label>
+
+        <select formControlName="year" id="year">
+          <option value="">All</option>
+          <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+        </select>
+      </div>
+
+      <span class="span-lateral"></span>
+
+      <div class="option">
+        <label for="year">Especialista: </label>
+
+        <select formControlName="year" id="year">
+          <option value="">All</option>
+          <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
+        </select>
+      </div>
+
+      <span class="search-icon-container"><i class="fa-solid fa-magnifying-glass"></i></span>
     </div>
 
   </div>
 <div class="modal-footer">
   <button type="button" class="btn primaryBtn" (click)="closeModal()">Seleccionar</button>
 </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="row">
+      <div class="col-lg-12 table-container">
+
+        <div class="options-container">
+
+          <div class="option">
+            <label for="year">Idioma: </label>
+
+            <select formControlName="year" id="year">
+              <option value="">All</option>
+              <option *ngFor="let languageOption of languageOptions" [value]="languageOption">{{ languageOption }}</option>
+            </select>
+          </div>
+
+          <div class="option">
+            <label for="year">País (opcional): </label>
+
+            <select formControlName="year" id="year">
+              <option value="">All</option>
+              <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+            </select>
+          </div>
+
+          <div class="option">
+            <label for="year">Especialista: </label>
+
+            <select formControlName="year" id="year">
+              <option value="">All</option>
+              <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
+            </select>
+          </div>
+
+      </div>
+
+      <div class="search-container">
+        <button type="button" class="btn primaryBtn" (click)="search()" *ngIf="searchOff">Buscar</button>
+        <div class="d-flex align-items-center loader" *ngIf="!searchOff">
+          <strong>Buscando un profesional...</strong>
+          <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+        </div>
+      </div>
+
+    </div>
+  </div> -->

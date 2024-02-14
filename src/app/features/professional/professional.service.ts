@@ -23,7 +23,8 @@ export class ProfessionalService {
     const modalRef = this.modalService.open(ProfessionalComponent, {
       ariaLabelledBy: 'modal-basic-title',
       centered: true,
-      size: 'lg',
+      // fullscreen: true
+      size: 'xl',
     });
     modalRef.componentInstance.title = title;
     return modalRef.result;
