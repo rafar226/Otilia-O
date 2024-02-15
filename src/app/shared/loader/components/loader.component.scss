@@ -11,6 +11,18 @@ $primary-light: rgb(179, 82, 235);
   z-index: 9000;
   right: 0;
   top: 0;
+
+  .btn {
+    border: 1px solid $primary;
+    border-radius: 15px;
+    color: $primary;
+    font-size: large;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%);
+    cursor: pointer;
+  }
 }
 
 .spinner {

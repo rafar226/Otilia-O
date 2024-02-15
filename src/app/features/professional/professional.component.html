@@ -4,8 +4,7 @@
 </div>
 <div class="modal-body">
 
-  <div class="container">
-
+  <div class="container" *ngIf="!searchSuccessful">
     <div class="title-container">
       <img src="./../../../assets/images/icon.png" alt="">
       <span class="title-text">Estamos para acompañarte las 24 horas. Por favor selecciona el especialista que deseas.</span>
@@ -45,8 +44,52 @@
 
       <span class="search-icon-container" (click)="search()"><i class="fa-solid fa-magnifying-glass"></i></span>
     </div>
-
   </div>
+
+  <div class="container" *ngIf="searchSuccessful">
+
+    <div class="professional-image-container">
+      <img src="./../../../assets/images/dra.jpg" alt="" class="professional-image">
+    </div>
+
+    <div class="data">
+      <span class="data-name"><meter min="1" max="5" value="5"
+          class="rating"></meter>
+      </span>
+      <h3> Marina Pezzelato </h3>
+      <div class="hour-container">
+        <span class="clock-icon">1 año en Otilia</span>
+      </div>
+    </div>
+
+    <div class="professional-detail">
+      <section class="info-section">
+        <div class="data">
+          <div>
+            <span class="data-name">Especialidad: </span><span>Obstetra</span>
+          </div>
+          <div>
+            <span class="data-name">Idioma: </span><span>Español</span>
+          </div>
+          <div>
+            <span class="data-name">Dni: </span><span>37.554.998</span>
+          </div>
+          <div>
+            <span class="data-name">MP: </span><span>98852</span>
+          </div>
+          <div>
+            <span class="data-name">Estado: </span><span>Habilitado</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="contact-container">
+
+    </div>
+  </div>
+
+
 
 
 <div class="modal-footer">

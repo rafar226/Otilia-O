@@ -10,6 +10,8 @@ import { LoaderService } from 'src/app/shared/loader';
 })
 export class ProfessionalComponent {
 
+  searchSuccessful: boolean = true;
+
   languageOptions = [
     "Español",
     "Inglés",
@@ -47,7 +49,15 @@ export class ProfessionalComponent {
 
   search() {
     this.loaderService.showSpinner()
-    this.loaderService.showText('Estamos buscando un profesional para ti')
+    this.loaderService.showText('Estamos buscando un profesional para ti...')
+    setTimeout(() => {
+      this.loaderService.showText('Hemos encontrado el especialista que buscabas, estamos conectando..')
+    }, 3000)
+
+    setTimeout(() => {
+      this.searchSuccessful =  true;
+      this.loaderService.hideSpinner();
+    }, 6000)
   }
 
 }

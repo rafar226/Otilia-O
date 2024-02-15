@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { LoaderService } from '../services';
 
 @Component({
   selector: 'app-loader',
@@ -11,4 +12,12 @@ import { NgIf } from '@angular/common';
 export class LoaderComponent {
   @Input() show = false;
   @Input() text = '';
+
+  constructor(private loaderService: LoaderService) {
+
+  }
+
+  cancel() {
+    this.loaderService.hideSpinner();
+  }
 }
