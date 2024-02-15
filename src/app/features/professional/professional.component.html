@@ -66,19 +66,19 @@
       <section class="info-section">
         <div class="data">
           <div>
-            <span class="data-name">Especialidad: </span><span>Obstetra</span>
+            <span class="data-name">Especialidad: </span><span> Obstetra</span>
           </div>
           <div>
-            <span class="data-name">Idioma: </span><span>Español</span>
+            <span class="data-name">Idioma: </span><span> Español</span>
           </div>
           <div>
-            <span class="data-name">Dni: </span><span>37.554.998</span>
+            <span class="data-name">Dni: </span><span> 37.554.998</span>
           </div>
           <div>
-            <span class="data-name">MP: </span><span>98852</span>
+            <span class="data-name">MP: </span><span> 98.852</span>
           </div>
           <div>
-            <span class="data-name">Estado: </span><span>Habilitado</span>
+            <span class="data-name">Estado: </span><span> Habilitado</span>
           </div>
         </div>
       </section>
@@ -89,9 +89,10 @@
     </div>
   </div>
 
+<div class="modal-footer" *ngIf="searchSuccessful">
+  <button type="button" class="btn primaryBtn search-other" (click)="searchAnother()">Buscar otro profesional
+    <i class="fa-solid fa-rotate-right"></i>
+  </button>
 
-
-
-<div class="modal-footer">
-  <button type="button" class="btn primaryBtn" (click)="closeModal()">Seleccionar</button>
+  <button type="button" class="btn primaryBtn" (click)="closeModal()">Contactar con Marina</button>
 </div>
