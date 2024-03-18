@@ -1,3 +1,3 @@
 export const openiaEnvironment = {
-  apiKey: "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",
+  apiKey: "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",
 }

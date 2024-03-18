@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+import { AuthGuard } from '../services';
 
 const routes: Routes = [
   {
@@ -9,13 +10,31 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'chat',
         pathMatch: 'prefix',
       },
+      // {
+      //   path: 'dashboard',
+      //   loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+      // },
       {
-        path: 'dashboard',
+        path: 'courses',
+        loadChildren: () => import('../features/courses/courses.module').then(m => m.CoursesModule),
+      },
+      {
+        path: 'chat',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-      }
+      },
+      {
+        path: 'login',
+        loadChildren: () => import('../login/login.module').then(m => m.LoginModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'register',
+        loadChildren: () => import('../register/register.module').then(m => m.RegisterModule),
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];

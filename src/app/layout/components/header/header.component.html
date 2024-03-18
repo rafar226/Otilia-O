@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLinkActive]="['router-link-active']" routerLink="/">
-      Otilia O.
+      Otilia
     </a>
     <!-- <img [src]="companyLogo" class="company-logo" alt="" /> -->
     <button (click)="toggleSidebar()" class="navbar-toggler" type="button">
@@ -21,17 +21,23 @@
         <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
           <a class="nav-link" tabindex="0" ngbDropdownToggle id="myAccountDropdown" role="button">
             <i class="fa fa-user"></i>
-            User
+            {{user?.displayName}}
             <b class="caret"></b>
           </a>
           <div ngbDropdownMenu aria-labelledby="myAccountDropdown" class="dropdown-menu">
-            <a ngbDropdownItem href="javascript:void(0)">
+            <a ngbDropdownItem>
               <i class="fa-solid fa-fw fa-info"></i>
-              About
+              Sobre Otilia
             </a>
-            <a ngbDropdownItem [routerLink]="['/login']" >
+            <!-- [routerLink]="['/login']" -->
+            <a ngbDropdownItem  *ngIf="!user" (click)="logIn()">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              Ingresar
+            </a>
+            <!-- [routerLink]="['/login']" -->
+            <a ngbDropdownItem  *ngIf="user" (click)="logout()">
               <i class="fa-solid fa-fw fa-power-off"></i>
-              LogOut
+              Salir
             </a>
           </div>
         </li>

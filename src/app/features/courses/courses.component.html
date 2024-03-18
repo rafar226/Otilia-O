@@ -1,0 +1,31 @@
+<div class="video-container">
+  <div class="title-container">
+    <h4>Cursos especialmente creados para vos</h4>
+  </div>
+
+  <div class="courses-container" #scrollContainer>
+
+  <div class="scroll-buttons-container">
+    <i class="fa-solid fa-circle-left" (click)="left()"></i>
+    <i class="fa-solid fa-circle-right" (click)="right()"></i>
+  </div>
+
+    <div *ngFor="let course of courses">
+      <button class="btn go-course" (click)="goToCourse(course)">Ir al curso</button>
+
+      <img width="100%" height="100%" src="{{course.front}}" class="front-img">
+
+      <div class="details">
+        <img src="{{ course.img }}" class="option-img">
+
+        <div class="course-detail">
+          <span>{{ course.name }}</span>
+          <span>Puntuación: {{ course.rating }}</span>
+          <span>Por: {{ course.teacher }}</span>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

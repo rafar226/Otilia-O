@@ -1,26 +1,21 @@
-* {
-    -webkit-transition: margin-left 0.2s ease-in-out;
-    -moz-transition: margin-left 0.2s ease-in-out;
-    -ms-transition: margin-left 0.2s ease-in-out;
-    -o-transition: margin-left 0.2s ease-in-out;
-    transition: margin-left 0.2s ease-in-out;
-}
-
-.header {
-  position: fixed;
-}
-
 .main-container {
-    margin-top: 55px;
-    margin-left: 235px;
+  margin-top: 75px;
+  margin-left: 235px;
+  height: calc(100vh - 90px);
 }
 
 .collapsed {
-    margin-left: 60px;
+  margin-left: 60px;
 }
 
 @media screen and (max-width: 992px) {
-    .main-container {
-        margin-left: 0px !important;
-    }
+  .main-container {
+      margin-left: 0px !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main-container {
+    height: calc(94vh - 90px);
+  }
 }

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { OpenAI} from 'openai';
-import { Observable, Subject, filter, from, map } from 'rxjs';
+import { Subject, from } from 'rxjs';
 import { Conversation } from './conversation.model';
 import { openiaEnvironment } from '../../environments/environments';
+import { EmbeddingData } from './embedding-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { openiaEnvironment } from '../../environments/environments';
 export class ChatService {
 
   newChat$ = new Subject<boolean>();
+  url = 'https://otilia.netlify.app/.netlify/functions/index/create';
 
   hour = new Date().getHours()
   minutes = new Date().getMinutes()
@@ -22,24 +24,30 @@ export class ChatService {
     dangerouslyAllowBrowser: true
   });
 
-  getDataFromOpenAi(text: string) {
-      from(this.openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [{"role": "user", "content": text}],
-        max_tokens: 50,
-      })).pipe(
-        filter(resp => !!resp && !!resp.choices),
-        map(resp => resp.choices[0].message)
-      ).subscribe(data => {
-        if(data.content) {
-          const answer: Conversation = {
-            text: data.content,
-            time: new Date().getHours() + ':' + new Date().getMinutes(),
-            role: 'openia'
-          }
-          this.currentConversation.push(answer);
-          this.newChat$.next(true);
+  getEmbeddings() {
+    const allData: EmbeddingData[] = [];
+    const textArray: any = [];
+
+    textArray.forEach((text: any) => {
+      from(this.openai.embeddings.create({
+        input: text,
+        model: "text-embedding-ada-002",
+        encoding_format: "float"
+      })).subscribe(data => {
+        const embeddingsData: OpenAI.Embeddings.Embedding[] = data.data;
+        const newData = {
+          plot_embedding: embeddingsData[0].embedding,
+          text: text
         }
-      });
+
+        allData.push(newData);
+      })
+    })
+
+    // setTimeout(() => {
+    //   console.log(allData)
+
+    // }, 3000)
+
   }
 }

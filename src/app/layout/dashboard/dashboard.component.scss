@@ -1,15 +1,85 @@
-$header-height: 80px;
+$header-height: 90px;
 $professional-container: 170px;
+
+$topnav-background-color: rgb(215, 137, 179);
+$topnav-background-color-hover: rgb(212, 86, 154);
+$letter-color: #fff;
+$secundary-border: rgb(81, 22, 116);
 
 * {
   background-color: white;
-  max-height: calc(100vh - $header-height);
 }
 
-.professional-container {
-  height: $professional-container;
+.chat-container {
+  height: 100%;
+  position: relative;
+
+  button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    top: 5px;
+    left: 35px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid $topnav-background-color;
+
+    i {
+      color: $topnav-background-color;
+    }
+  }
 }
 
-// .chat-container {
-//   height: calc(100vh - $header-height - $professional-container);
+.notDisplay {
+  display: none;
+}
+
+
+// @keyframes expand {
+//   from {
+//     height: calc(80vh - $header-height);
+//   }
+
+//   to {
+//     height: calc(30vh - $header-height);
+//   }
 // }
+
+// @keyframes notExpand {
+//   from {
+//     height: calc(30vh - $header-height);
+//   }
+
+//   to {
+//     height: calc(80vh - $header-height);
+//   }
+// }
+
+@media screen and (max-width: 800px) {
+  .chat-container {
+    button {
+      top: 5px;
+      left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .chat-container {
+    button {
+      top: 5px;
+      left: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .chat-container {
+    button {
+      top: 5px;
+      left: 5px;
+    }
+  }
+}

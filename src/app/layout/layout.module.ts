@@ -10,6 +10,7 @@ import { LayoutComponent } from './layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../shared/loader';
+import { LoginModule } from '../login/login.module';
 
 @NgModule({
   imports: [

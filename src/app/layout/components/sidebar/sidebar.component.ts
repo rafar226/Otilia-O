@@ -1,6 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subject, takeUntil, tap } from 'rxjs';
+import { AuthService } from 'src/app/services';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,6 +11,7 @@ import { Subject, takeUntil, tap } from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
   @Output() collapsedEvent = new EventEmitter<boolean>();
+  @Input() user: User | null = null;
 
   isActive = false;
   collapsed = false;
@@ -19,6 +22,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     public router: Router,
+    private authService: AuthService
   ) {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
@@ -69,5 +73,13 @@ export class SidebarComponent implements OnInit {
 
   changeLang(language: string) {
     console.log('lenguaje')
+  }
+
+  logIn() {
+    this.router.navigate(['./login'])
+  }
+
+  logout() {
+    this.authService.logOut();
   }
 }

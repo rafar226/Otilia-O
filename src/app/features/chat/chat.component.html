@@ -5,7 +5,7 @@
         <div class="chat-text" id="chat">
           <div class="welcome-text">
               <span class="icon-chat"><img src="./../../assets/images/icon.png" alt=""></span>
-              <p>Bienvenida, estoy para acompañarte. ¿En que puedo ayduarte?</p>
+              <p>Bienvenido/a, estoy para acompañarte. ¿En que puedo ayduarte?</p>
               <a>{{ currentTime }}</a>
           </div>
 
@@ -26,10 +26,12 @@
           </ng-container>
         </div>
     </div>
-
+    <!-- class="input-container" -->
     <div class="input-container">
       <input type="text" class="input" placeholder="Escribe aquí tu consulta" [(ngModel)]="newMessage" (keyup.enter)="send(newMessage)">
       <div class="icon-container">
+        <!-- <span class="icon-chat" (click)="createEmbedding()"><i class="fa-solid fa-play"></i></span> -->
+
         <span class="icon-chat" (click)="send(newMessage)"><i class="fa-solid fa-play"></i></span>
         <span class="icon-chat"><i class="fa-solid fa-microphone"></i></span>
         <span class="icon-chat"><i class="fa-solid fa-image"></i></span>

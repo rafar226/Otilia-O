@@ -7,20 +7,33 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfessionalComponent } from './features/professional/professional.component';
 import { LoaderComponent } from './shared/loader';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from 'src/environments/environment';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastComponent } from './shared/components/amos-toast';
+import { FeedbackComponent } from './features/feedback/feedback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfessionalComponent
+    ProfessionalComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    LoaderComponent
+    LoaderComponent,
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    ToastComponent
   ],
-  providers: [],
+  providers: [ToastComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

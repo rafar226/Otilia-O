@@ -1,5 +1,5 @@
-<app-header class="header"></app-header>
-<app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+<app-header class="header" [user]="user"></app-header>
+<app-sidebar (collapsedEvent)="receiveCollapsed($event)" [user]="user"></app-sidebar>
 <section [ngClass]="{ collapsed: collapedSideBar }" class="main-container">
   <router-outlet></router-outlet>
   <app-loader [show]="loader" [text]="text"></app-loader>

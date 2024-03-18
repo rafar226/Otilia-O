@@ -1,5 +1,9 @@
-$topnav-background-color: rgb(215, 137, 179);
+// $topnav-background-color: rgb(117, 97, 146);
+// $topnav-background-color-hover: rgb(209, 198, 255);
+$topnav-background-color: rgb(209, 198, 255);
+$topnav-background-color-hover: rgb(117, 97, 146);
 $letter-color: #fff;
+$secundary-border: rgb(103, 72, 151);
 
 :host {
   .navbar {
@@ -15,10 +19,22 @@ $letter-color: #fff;
 
     .nav-item > a {
       color: $letter-color;
+    }
+  }
+
+  .dropdown-menu {
+    background: $topnav-background-color;
+    a {
+      color: #fff;
+      cursor: pointer;
 
       &:hover {
-        color: $letter-color;
+        background: $topnav-background-color-hover;
       }
+    }
+
+    i {
+      margin-right: 3px;
     }
   }
 
@@ -42,10 +58,6 @@ $letter-color: #fff;
       }
     }
   }
-}
-
-.department-icon {
-  color: white;
 }
 
 .company-logo {

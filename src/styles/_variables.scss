@@ -5,9 +5,14 @@ $action-toolbar-min1900px-width: 115px;
 $action-toolbar-min3000px-width: 80px;
 
 //colors
+// $colors: (
+//   primary: rgb(215, 137, 179),
+//   secondary: rgb(179, 82, 235)
+// );
+
 $colors: (
-  primary: rgb(215, 137, 179),
-  secondary: rgb(179, 82, 235)
+  primary: rgb(117, 97, 146),
+  secondary: rgb(209, 198, 255)
 );
 
 $primary-color: map-get($colors, primary);
