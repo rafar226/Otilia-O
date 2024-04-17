@@ -10,20 +10,24 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'chat',
+        redirectTo: 'dashboard',
         pathMatch: 'prefix',
       },
-      // {
-      //   path: 'dashboard',
-      //   loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-      // },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+      },
       {
         path: 'courses',
         loadChildren: () => import('../features/courses/courses.module').then(m => m.CoursesModule),
       },
       {
         path: 'chat',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+        loadChildren: () => import('../features/chat/chat.module').then(m => m.ChatModule),
+      },
+      {
+        path: 'saved-chats',
+        loadChildren: () => import('../features/saved-chats/saved-chat.module').then(m => m.SavedChatModule),
       },
       {
         path: 'login',
@@ -40,7 +44,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), RouterModule],
   exports: [RouterModule],
 })
 export class LayoutRoutingModule {}

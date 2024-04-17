@@ -13,13 +13,11 @@ import { environment } from 'src/environments/environment';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastComponent } from './shared/components/amos-toast';
-import { FeedbackComponent } from './features/feedback/feedback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfessionalComponent,
-    FeedbackComponent
+    ProfessionalComponent
   ],
   imports: [
     BrowserModule,

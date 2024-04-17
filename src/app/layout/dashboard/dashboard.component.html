@@ -1,10 +1,16 @@
-<div class="chat-container">
-    <!-- <button
-    type="button"
-    class="btn  ms-2"
-    (click)="expand()"
-    >
-    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-    </button> -->
-    <app-chat></app-chat>
+<div class="container-all">
+  <div class="bg">
+  </div>
+
+    <div class="welcome-container">
+      <img src="../../../assets/images/photo_black.png" alt="" class="welcome-img">
+      <p class="welcome-text">Welcome, Sophie</p>
+      <p class="welcome-sub-text">I’m here to accompany you. How can I help you?</p>
+    </div>
+
+    <div class="input-container">
+      <input type="text" placeholder="Message Otilia..." [(ngModel)]="newMessage" (keyup.enter)="send(newMessage)">
+      <i class="fa-solid fa-circle-up" (click)="send(newMessage)"></i>
+    </div>
+
 </div>

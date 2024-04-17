@@ -1,36 +1,51 @@
 
 // $topnav-background-color: rgb(117, 97, 146);
-$topnav-background-color: rgb(209, 198, 255);
+// $topnav-background-color: rgb(209, 198, 255);
+$topnav-background-color: rgba(249, 250, 251, 1);
+$font-menu-color: rgba(16, 24, 40, 1);
 
-$font-menu-color: white;
 
 .sidebar {
-  height: calc(100vh - 50px);
-  position: fixed;
-  z-index: 1000;
-  top: 75px;
-  left: 235px;
-  width: 235px;
-  margin-left: -230px;
-  // margin-bottom: 25px;
-  border: none;
-  border-radius: 0;
-  overflow-y: auto;
-  bottom: 0;
-  overflow-x: hidden;
-  padding-bottom: 40px;
+  height: 100%;
+  width: 250px;
   white-space: nowrap;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  overflow-y: hidden;
+
+  .title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    align-items: center;
+    margin: 15px 0;
+    cursor: pointer;
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+
+    p {
+      width: 100%;
+      line-height: 4rem;
+      height: 50px;
+      display: flex;
+      margin-left: 10px;
+      font-size: x-large;
+    }
+  }
+}
 
   .list-group {
-    height: 100%;
+    height: calc(100% - 80px);
     background-color: $topnav-background-color;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
+    overflow-y: hidden;
   }
 
   .list-group {
@@ -39,21 +54,25 @@ $font-menu-color: white;
       flex-wrap: wrap;
     }
 
-    .bottom-data {
+    .configuration-items {
       display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
     }
+
+    // .bottom-data {
+    //   display: flex;
+    // }
 
     a.list-group-item {
       background: none;
       cursor: pointer;
-      border: 0;
+      border: 1px solid $topnav-background-color;
       color: $font-menu-color;
       text-decoration: none;
       padding: 0.75rem 1.25rem;
       display: flex;
-      width: 100%;
       align-items: center;
-      border-radius: 5px;
 
       i {
         margin-right: 10px;
@@ -85,7 +104,6 @@ $font-menu-color: white;
 
   .sidebar-dropdown {
     *:focus {
-      border-radius: none;
       border: none;
     }
 
@@ -122,12 +140,10 @@ $font-menu-color: white;
     }
 
     .panel-collapse {
-      border-radius: 0;
       border: none;
 
       .panel-body {
         .list-group-item {
-          border-radius: 0;
           background-color: $topnav-background-color;
           border: 0 solid transparent;
 
@@ -146,68 +162,6 @@ $font-menu-color: white;
       }
     }
   }
-}
-
-.nested-menu {
-  .list-group-item {
-    cursor: pointer;
-  }
-
-  .nested {
-    list-style-type: none;
-  }
-
-  ul.submenu {
-    display: none;
-    height: 0;
-  }
-
-  & .expand {
-    ul.submenu {
-      display: block;
-      list-style-type: none;
-      height: auto;
-
-      li {
-        a {
-          font-weight: 400;
-          color: #fff;
-          text-align: inherit;
-          text-decoration: none;
-          white-space: nowrap;
-          padding: 10px;
-          display: block;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .sidebar {
-    top: 75px;
-    left: -5px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .sidebar .list-group {
-    height: 93%;
-  }
-}
-
-@media print {
-  .sidebar {
-    display: none !important;
-  }
-}
-
-@media (min-width: 992px) {
-  .header-fields {
-    display: none;
-  }
-}
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -223,36 +177,11 @@ $font-menu-color: white;
   -webkit-box-shadow: inset 0 0 3px rgba(255, 255, 255, 1);
 }
 
-.toggle-button {
-  // position: fixed;
-  // width: 236px;
-  // position: fixed;
-  height: 50px;;
-  cursor: pointer;
-  // padding: 12px;
-  padding: 0.75rem 1.25rem;
-  bottom: 15px;
-  border-radius: 10px;
-  color: white;
-  background: $topnav-background-color;
+// @media screen and (max-width: 700px) {
+//   .sidebar {
+//     height: 50%;
+//     width: 500px;
 
-  &:hover {
-    // background: darken($topnav-background-color, 25%);
-    color: #fff;
-  }
+//   }
 
-  // border-top: 1px solid #999;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.collapsed {
-  width: 60px;
-
-  span {
-    display: none;
-  }
-}
+// }

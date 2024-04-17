@@ -1,21 +1,108 @@
+$topnav-background-color: rgb(215, 137, 179);
+
+.container-all {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.siderbar-container {
+  width: 250px;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
 .main-container {
-  margin-top: 75px;
-  margin-left: 235px;
-  height: calc(100vh - 90px);
+  display: flex;
+  width: calc(100vw - 250px);
+  height: 100vh;
 }
 
-.collapsed {
-  margin-left: 60px;
+.siderbar-down-container {
+  display: block;
+  // height: 5vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  background: white;
+  box-shadow: 2px 2px 10px lightgrey;
+  border-top: 2px double $topnav-background-color;
+  z-index: 1;
+  position: fixed;
+  // height: 20px;
 }
 
-@media screen and (max-width: 992px) {
-  .main-container {
-      margin-left: 0px !important;
+.collapse-circle {
+  // box-shadow: 2px 2px 10px lightgrey;
+  border-top: 2px double $topnav-background-color;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  background: white;
+  cursor: pointer;
+  text-align: center;
+
+  i {
+    color: $topnav-background-color;
   }
 }
 
+
+.collapse-not-active {
+  height: 4vh;
+  animation: notcollapse 0.5s ease;
+}
+
+.collapse-active {
+  height: 65vh;
+  animation: collapse 1s ease;
+
+}
+
 @media screen and (max-width: 700px) {
-  .main-container {
-    height: calc(94vh - 90px);
+  .siderbar-container {
+    display: none;
+  }
+
+  .siderbar-down-container {
+    display: block;
+    z-index: 2;
+  }
+
+}
+
+@media screen and (min-width: 701px) {
+  .siderbar-container {
+    display: flex;
+  }
+
+  .siderbar-down-container {
+    display: none;
+  }
+}
+
+@keyframes collapse {
+  from {
+    height: 5vh;
+  }
+
+  to {
+    height: 65vh;
+  }
+}
+
+@keyframes notcollapse {
+  from {
+    height: 65vh;
+  }
+
+  to {
+    height: 5vh;
   }
 }

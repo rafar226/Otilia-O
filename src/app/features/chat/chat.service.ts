@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OpenAI} from 'openai';
 import { Subject, from } from 'rxjs';
-import { Conversation } from './conversation.model';
+import { Conversation, UserConveration } from './conversation.model';
 import { openiaEnvironment } from '../../environments/environments';
 import { EmbeddingData } from './embedding-data.model';
 
@@ -12,12 +12,14 @@ export class ChatService {
 
   newChat$ = new Subject<boolean>();
   url = 'https://otilia.netlify.app/.netlify/functions/index/create';
+  private readonly currentNewChatKey = 'new_chat_state';
 
   hour = new Date().getHours()
   minutes = new Date().getMinutes()
   currentTime: string = "";
-
+  text: string = '';
   currentConversation: Conversation[] = [];
+  chatFromSeved: UserConveration | null = null;
 
   openai = new OpenAI({
     apiKey: openiaEnvironment.apiKey,
@@ -49,5 +51,23 @@ export class ChatService {
 
     // }, 3000)
 
+  }
+
+  shareData(text: string) {
+    this.text = text;
+    localStorage.setItem(this.currentNewChatKey, JSON.stringify(this.text));
+  }
+
+  getData(): string {
+    const newMessage = localStorage.getItem(this.currentNewChatKey);
+    if (newMessage) {
+      this.text = JSON.parse(newMessage);
+    }
+    return this.text;
+  }
+
+  clearData() {
+    this.text = '';
+    localStorage.removeItem(this.currentNewChatKey);
   }
 }

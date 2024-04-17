@@ -7,6 +7,7 @@ export interface Course {
   link: string;
   img: string;
   front: string;
+  favorite: boolean;
 }
 
 export interface Opinion {

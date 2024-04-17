@@ -1,146 +1,83 @@
-<nav [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }" class="sidebar">
+<nav class="sidebar">
+
+  <div class="title" routerLink="./">
+    <img src="../../../../assets/images/logo-final.ico" alt="">
+    <!-- <p>Otilia</p> -->
+  </div>
+
   <div class="list-group">
     <div class="top-data">
       <a
         [routerLinkActive]="['router-link-active']"
         class="list-group-item"
-        routerLink="/courses"
-        title="titulo"
-        >
+        routerLink="/courses">
         <i class="fa-solid fa-graduation-cap"></i>
         &nbsp;
         <span>
-          Cursos
+          Browse Tutorials
         </span>
       </a>
-      <!-- <a
-        [routerLinkActive]="['router-link-active']"
-        class="list-group-item"
-        routerLink="/foro"
-        title="titulo"
-        >
-        <i class="fa-solid fa-user-group"></i>
-        &nbsp;
-        <span>
-          Comunidad
-        </span>
-      </a> -->
-      <!-- <a
-        [routerLinkActive]="['router-link-active']"
-        class="list-group-item"
-
-        title="titulo"
-        >
-        <i class="fa-solid fa-user-tie"></i>
-        &nbsp;
-        <span>
-          Profesionales
-        </span>
-      </a> -->
       <a
         [routerLinkActive]="['router-link-active']"
         class="list-group-item"
-        routerLink="/chat"
-        title="titulo"
-        >
+        routerLink="/chat">
         <i class="fa-solid fa-message"></i>
         &nbsp;
         <span>
-          Mis conversaciones
+          My conversation
         </span>
       </a>
       <a
         [routerLinkActive]="['router-link-active']"
         class="list-group-item"
+        routerLink="/saved-chats" (click)="savedChatsWarning()">
+        <i class="fa-regular fa-comments" ></i>
+        &nbsp;
+        <span>
+          Saved chats
+        </span>
+      </a>
+    </div>
 
-        title="titulo"
-        >
+    <div class="configuration-items">
+      <a  *ngIf="!user"
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item"
+        (click)="logIn()">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        &nbsp;
+        <span>Log in</span>
+      </a>
+      <a *ngIf="user"
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item">
+        <i class="fa-solid fa-user"></i>
+        &nbsp;
+        <span>{{user ? user.displayName : ''}}</span>
+      </a>
+      <a
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item">
+        <i class="fa-solid fa-circle-info"></i>
+        &nbsp;
+        <span>About Otilia</span>
+      </a>
+      <a
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item">
         <i class="fa-solid fa-gear"></i>
         &nbsp;
-        <span>Configuracion</span>
+        <span>Configuration</span>
       </a>
-
-      <div class="header-fields">
-        <!-- <div class="nested-menu">
-          <a (click)="addExpandClass('languages')" class="list-group-item">
-            <i class="fa fa-language"></i>
-            &nbsp;
-            <span>
-              Lenguaje
-              <b class="caret"></b>
-            </span>
-          </a>
-          <li [class.expand]="showMenu === 'languages'" class="nested">
-            <ul class="submenu">
-              <li>
-                <a (click)="changeLang('en')" href="javascript:void(0)">
-                  English'
-                </a>
-              </li>
-              <li>
-                <a (click)="changeLang('fr')" href="javascript:void(0)">
-                  French
-                </a>
-              </li>
-              <li>
-                <a (click)="changeLang('ur')" href="javascript:void(0)">
-                  Urdu
-                </a>
-              </li>
-              <li>
-                <a (click)="changeLang('es')" href="javascript:void(0)">
-                  Spanish
-                </a>
-              </li>
-            </ul>
-          </li>
-        </div> -->
-
-        <div class="nested-menu">
-          <a (click)="addExpandClass('profile')" class="list-group-item">
-            <i class="fa fa-user"></i>
-            <span>
-              {{user?.displayName}}
-            </span>
-          </a>
-          <li [class.expand]="showMenu === 'profile'" class="nested">
-            <ul class="submenu">
-              <li>
-                <a>
-                  <span >
-                    <i class="fa-solid fa-fw fa-info"></i>
-                    About Otilia
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <span *ngIf="user" (click)="logout()">
-                    <i class="fa-solid fa-fw fa-power-off"></i>
-                    Salir
-                  </span>
-                  <span *ngIf="!user" (click)="logIn()">
-                    <i class="fa-solid fa-fw fa-power-off"></i>
-                    Ingresar
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </div>
-      </div>
-    </div>
-
-    <div class="bottom-data">
-      <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">
-        <i class="fa-solid fa-angles-{{ collapsed ? 'right' : 'left' }}"></i>
+      <a *ngIf="user"
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item"
+        (click)="logout()">
+        <i class="fa-solid fa-fw fa-power-off"></i>
         &nbsp;
-      </div>
+        <span>Log out</span>
+      </a>
     </div>
-  </div>
 
-  <!-- <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">
-    <i class="fa-solid fa-angles-{{ collapsed ? 'right' : 'left' }}"></i>
-    &nbsp;
-  </div> -->
+  </div>
 </nav>

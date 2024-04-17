@@ -1,9 +1,49 @@
 <div class="video-container">
-  <div class="title-container">
-    <h4>Cursos especialmente creados para vos</h4>
+  <div class="bg">
   </div>
 
-  <div class="courses-container" #scrollContainer>
+  <div class="title-container">
+    <h4>Browse tutorials</h4>
+  </div>
+
+  <div class="input-container">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search video totorials" aria-label="Search video totorials" aria-describedby="basic-addon2" [(ngModel)]="filter">
+      <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+    </div>
+
+    <div class="filter-container">
+      <button class="btn">VIEW ALL</button>
+      <button class="btn">Nutrition</button>
+      <button class="btn">Exercises</button>
+    </div>
+  </div>
+
+  <div class="videos-container">
+    <div class="card-group" *ngFor="let course of courses | filter: 'name' : filter">
+
+
+      <div class="card">
+        <span class="heart-icon-container" [ngClass]="course.favorite === true ? 'heart-icon-active' : 'heart-icon-not-active'">
+          <i class="fa-solid fa-heart"></i>
+        </span>
+        <img src="{{ course.img }}" class="card-img-top" alt="..." (click)="goToCourse(course)">
+        <div class="card-body">
+          <h5 class="card-title">{{ course.name }}</h5>
+          <p class="card-text">Course description.</p>
+          <p class="card-text"><small class="text-body-secondary clock-icon">{{ course.duration }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+<!--
+<div class="courses-container" #scrollContainer>
 
   <div class="scroll-buttons-container">
     <i class="fa-solid fa-circle-left" (click)="left()"></i>
@@ -27,5 +67,4 @@
 
 
     </div>
-  </div>
-</div>
+  </div> -->

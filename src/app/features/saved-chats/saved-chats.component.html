@@ -1,0 +1,25 @@
+<div class="container-all">
+  <div class="bg">
+  </div>
+
+  <div class="title-container">
+    <h4>Saved chats</h4>
+
+    <span *ngIf="userOtilia?.conversations">You have {{ userOtilia?.conversations?.length }} saved chats.</span>
+  </div>
+
+  <div class="container-chats">
+    <div *ngFor="let chat of chats">
+        <div class="chat">
+          <div class="span-option">
+            <span>Name: </span> <span>{{ chat.conversationName }}</span>
+          </div>
+          <div class="span-option">
+            <span (click)="goToChat(chat)" class="link">Go to chat</span>
+            <span class="link" (click)="removeChat(chat)"><i class="fa-solid fa-trash"></i></span>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>

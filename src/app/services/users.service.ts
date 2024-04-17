@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
+  BehaviorSubject,
   Observable,
 } from 'rxjs';
 import { Firestore, collection, addDoc, collectionData, doc, updateDoc } from '@angular/fire/firestore';
@@ -16,45 +17,45 @@ export class UsersService {
   private http = inject(HttpClient);
   private auth = inject(Auth);
 
-  currentUserOtilia!: UserOtilia | null;
+  // currentUserOtilia!: UserOtilia | undefined;
   currentUser!: User;
   userUid: string = '';
-  currentIdPlayer: string | undefined = ''
 
-
-  // private userDataSubject = new BehaviorSubject<User | null>(null);
-  // userData$: Observable<User | null> = this.userDataSubject.asObservable();
+  private currentUserOtiliaSubject = new BehaviorSubject<UserOtilia | undefined>(undefined);
+  currentUserOtilia$: Observable<UserOtilia | undefined> = this.currentUserOtiliaSubject.asObservable();
 
   constructor(
     private modalService: NgbModal,
     private firestore: Firestore,
   ) {
     // super();
-
   }
 
   addNewUser(newUser: User, displayName: string){
+    console.log(newUser)
     const user: UserOtilia = {
       uid: newUser.uid,
-      email: newUser.email,
+      email: newUser.email ? newUser.email : '',
       name: '',
       lastName: '',
       nickName: displayName,
       profileImg: '',
       nationality: '',
-      isEmailValid: false
+      isEmailValid: false,
+      conversations: []
     }
     const createdUserRef = collection(this.firestore, 'Users');
-    return addDoc(createdUserRef, user).then(newUser => {
+    return addDoc(createdUserRef, user)
+    // .then(newUser => {
 
-      this.getAllUsers().subscribe(users => {
-        const currentUser = users.find(x => x.uid === this.userUid);
-        if(currentUser) {
-          this.currentUserOtilia = currentUser;
-          this.setCurrentUserOtilia(currentUser);
-        }
-      })
-    });
+      // this.getAllUsers().subscribe(users => {
+      //   const currentUser = users.find(x => x.uid === this.userUid);
+      //   if(currentUser) {
+      //     this.currentUserOtilia = currentUser;
+      //     this.setCurrentUserOtilia(currentUser);
+      //   }
+      // })
+    // });
   }
 
   getAllUsers(): Observable<UserOtilia[]> {
@@ -64,12 +65,12 @@ export class UsersService {
 
   getUserInfo(uId: string) {
     const createdUserRef = collection(this.firestore, `Users/${uId}`);
-    return (createdUserRef);
+    return (createdUserRef)
   }
 
-  setCurrentUserOtilia(currentUserPlayBee: UserOtilia) {
-    this.currentUserOtilia = currentUserPlayBee;
-  }
+  // setCurrentUserOtilia(currentUserOtilia: UserOtilia) {
+  //   this.currentUserOtilia = currentUserOtilia;
+  // }
 
   setCurrentUser(currentUser: User) {
     this.currentUser = currentUser;
@@ -79,12 +80,13 @@ export class UsersService {
     return this.currentUser;
   }
 
-  setCurrentId(id: string){
-    this.currentIdPlayer = id;
+
+  setCurrentUserOtilia(currentUserOtilia: UserOtilia) {
+    this.currentUserOtiliaSubject.next(currentUserOtilia);
   }
 
-  getCurrentId(){
-    return this.currentIdPlayer;
+  getCurrentUserOtilia(){
+    return this.currentUserOtilia$;
   }
 
 }

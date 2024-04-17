@@ -2,7 +2,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'variables';
 @import 'utils';
-@import 'responsive';
 
 body {
   // background: #ededee;
@@ -24,23 +23,23 @@ body {
 
 /* buttons */
 
-.primaryBtn {
-  background: $primary-color;
-  color: white;
-  &:hover {
-    background: $secondary-color;
-    color: white;
-  }
-}
+// .primaryBtn {
+//   background: $primary-color;
+//   color: white;
+//   &:hover {
+//     background: $secondary-color;
+//     color: white;
+//   }
+// }
 
-.secondaryBtn {
-  background: $secondary-color;
-  color: white;
-  &:hover {
-    background: #676a6d;
-    color: white;
-  }
-}
+// .secondaryBtn {
+//   background: $secondary-color;
+//   color: white;
+//   &:hover {
+//     background: #676a6d;
+//     color: white;
+//   }
+// }
 
 /* screen container */
 
@@ -127,10 +126,10 @@ body {
 /* modals */
 
 
-amos-web-loader {
-  .spinner {
-    > div {
-      background-color: $primary-color !important;
-    }
-  }
-}
+// amos-web-loader {
+//   .spinner {
+//     > div {
+//       background-color: $primary-color !important;
+//     }
+//   }
+// }

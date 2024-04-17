@@ -1,27 +1,38 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services';
-import { UsersService } from 'src/app/services/users.service';
-import { UserOtilia } from 'src/app/shared/user-Otilia.model';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss'],
+  selector: 'app-sidebar-down',
+  templateUrl: './sidebar-down.component.html',
+  styleUrls: ['./sidebar-down.component.scss']
 })
-export class SidebarComponent {
+export class SidebarDownComponent {
   @Input() user: User | null = null;
-  userOtilia: UserOtilia | undefined = undefined;
-
-  // private destroy$ = new Subject<boolean>();
+  @Input() collapsed: boolean = false;
+  @Output() collapsedEvent = new EventEmitter<boolean>();
 
   constructor(
     public router: Router,
-    private authService: AuthService,
-    private usersService: UsersService
+    private authService: AuthService
   ) {
+  }
+
+  collapsedEventEmitter() {
+    this.collapsedEvent.emit(false)
+  }
+
+  logIn() {
+    this.router.navigate(['./login']);
+    this.collapsedEvent.emit(false)
+
+  }
+
+  logout() {
+    this.authService.logOut();
+    this.collapsedEvent.emit(false)
   }
 
   savedChatsWarning() {
@@ -35,22 +46,11 @@ export class SidebarComponent {
       }).then((result) => {
         if (result.isConfirmed) {
           this.router.navigate(['/login'])
-        }else {
+        } else {
           this.router.navigate(['/'])
         }
       });
     }
   }
 
-  changeLang(language: string) {
-    console.log('lenguaje')
-  }
-
-  logIn() {
-    this.router.navigate(['./login'])
-  }
-
-  logout() {
-    this.authService.logOut();
-  }
 }

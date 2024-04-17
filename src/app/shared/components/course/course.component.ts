@@ -10,6 +10,7 @@ import { Course } from '../../course.model';
 })
 export class CourseComponent {
   @Input() course!: Course;
+
   rating = 8;
   private activeModal = inject(NgbActiveModal);
 

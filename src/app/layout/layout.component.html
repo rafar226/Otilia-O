@@ -1,6 +1,20 @@
-<app-header class="header" [user]="user"></app-header>
-<app-sidebar (collapsedEvent)="receiveCollapsed($event)" [user]="user"></app-sidebar>
-<section [ngClass]="{ collapsed: collapedSideBar }" class="main-container">
-  <router-outlet></router-outlet>
-  <app-loader [show]="loader" [text]="text"></app-loader>
-</section>
+<!-- <app-header class="header" [user]="user"></app-header> -->
+<div class="container-all">
+  <section class="siderbar-container">
+    <app-sidebar [user]="user"></app-sidebar>
+  </section>
+
+  <section class="siderbar-down-container" [ngClass]="collapsed ? 'collapse-active' : 'collapse-not-active'">
+    <span class="collapse-circle" (click)="collapse()">
+      <i class="fa-solid fa-angles-up" *ngIf="!collapsed"></i>
+      <i class="fa-solid fa-angles-down" *ngIf="collapsed"></i>
+    </span>
+    <app-sidebar-down [user]="user" [collapsed]="collapsed" (collapsedEvent)="collapse($event)"></app-sidebar-down>
+  </section>
+
+  <section class="main-container">
+    <router-outlet></router-outlet>
+    <app-loader [show]="loader" [text]="text"></app-loader>
+  </section>
+</div>
+

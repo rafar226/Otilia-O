@@ -1,42 +1,41 @@
 <div class="container-all">
-  <div class="chat-container">
+  <div class="bg">
+  </div>
 
-    <div class="text">
-        <div class="chat-text" id="chat">
-          <div class="welcome-text">
-              <span class="icon-chat"><img src="./../../assets/images/icon.png" alt=""></span>
-              <p>Bienvenido/a, estoy para acompañarte. ¿En que puedo ayduarte?</p>
-              <a>{{ currentTime }}</a>
+  <div class="button-container">
+    <button class="btn" (click)="newChat()"><i class="fa-solid fa-plus" ></i> NEW CHAT</button>
+    <button class="btn" (click)="saveChat()"><i class="fa-regular fa-heart"></i> SAVE CHAT</button>
+  </div>
+
+  <div class="chat-text" id="chat">
+    <ng-container *ngIf="currentConversation">
+      <ul>
+        <li *ngFor="let chat of currentConversation" [ngClass]="chat.role === 'openia' ? 'openia-bg' : 'user-bg'">
+          <div class="icon-container">
+            <span class="icon-chat" *ngIf="chat.role === 'openia'"><img src="./../../assets/images/logo-final.ico" alt="" ></span>
+            <span class="icon-user" *ngIf="chat.role === 'user'"><i class="fa-solid fa-user"></i></span>
+            <p>{{ chat.role === 'openia' ? 'Otilia' : 'You' }}</p>
           </div>
 
-          <ng-container *ngIf="currentConversation">
-            <ul>
-              <li *ngFor="let chat of currentConversation">
-                <div  [ngClass]="chat.role === 'openia' ? 'openia' : 'user'">
+          <div class="text-container">
+            <a class="text-conversation">{{ chat.text }}</a>
+          </div>
 
-                  <span class="icon-chat"><img src="./../../assets/images/icon.png" alt="" *ngIf="chat.role === 'openia'"></span>
-                  <span class="icon-user" *ngIf="chat.role === 'user'"><i class="fa-solid fa-user"></i></span>
+          <span class="timer">{{ chat.time }}</span>
 
-                  <a class="text-conversation">{{ chat.text }}</a>
-                  <span class="timer">{{ chat.time }}</span>
-                </div>
-              </li>
-            </ul>
+        </li>
+      </ul>
+    </ng-container>
+  </div>
 
-          </ng-container>
-        </div>
+  <div class="input-container">
+    <input type="text" class="input" placeholder="Message Otilia..." [(ngModel)]="newMessage" (keyup.enter)="send(newMessage)">
+    <div class="icon-container">
+      <!-- <span class="icon-chat" (click)="createEmbedding()"><i class="fa-solid fa-play"></i></span> -->
+
+      <span class="icon-chat" (click)="send(newMessage)"><i class="fa-solid fa-play"></i></span>
+      <span class="icon-chat"><i class="fa-solid fa-microphone"></i></span>
+      <span class="icon-chat"><i class="fa-solid fa-image"></i></span>
     </div>
-    <!-- class="input-container" -->
-    <div class="input-container">
-      <input type="text" class="input" placeholder="Escribe aquí tu consulta" [(ngModel)]="newMessage" (keyup.enter)="send(newMessage)">
-      <div class="icon-container">
-        <!-- <span class="icon-chat" (click)="createEmbedding()"><i class="fa-solid fa-play"></i></span> -->
-
-        <span class="icon-chat" (click)="send(newMessage)"><i class="fa-solid fa-play"></i></span>
-        <span class="icon-chat"><i class="fa-solid fa-microphone"></i></span>
-        <span class="icon-chat"><i class="fa-solid fa-image"></i></span>
-      </div>
-    </div>
-
   </div>
 </div>

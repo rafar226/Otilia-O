@@ -1,0 +1,144 @@
+<div class="container-all" *ngIf="collapsed">
+
+  <div class="title" routerLink="./" (click)="collapsedEventEmitter()">
+    <img src="../../../../assets/images/logo-final.ico" alt="">
+    <!-- <p>Otilia</p> -->
+  </div>
+
+  <div class="top-data ">
+    <div class="row">
+      <a
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item col-4"
+      routerLink="/courses" (click)="collapsedEventEmitter()">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>
+        Browse Tutorials
+      </span>
+    </a>
+    <a
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item col-4"
+      routerLink="/chat" (click)="collapsedEventEmitter()">
+      <i class="fa-solid fa-message"></i>
+      <span>
+        My conversation
+      </span>
+    </a>
+    <a
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item col-4"
+      routerLink="/saved-chats" (click)="collapsedEventEmitter()" (click)="savedChatsWarning()">
+      <i class="fa-regular fa-comments"></i>
+      <span>
+        Saved chats
+      </span>
+    </a>
+    <a
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item col-4" (click)="collapsedEventEmitter()">
+      <i class="fa-solid fa-gear"></i>
+      <span>Configuration</span>
+    </a>
+    </div>
+
+    <div class="row">
+      <a  *ngIf="!user"
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item col-4"
+      (click)="logIn()">
+      <i class="fa-solid fa-right-to-bracket"></i>
+      <span>Log in</span>
+    </a>
+
+    <a *ngIf="user"
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item col-4">
+      <i class="fa-solid fa-user"></i>
+      <span>{{user ? user.displayName : ''}}</span>
+    </a>
+
+    <a
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item col-4" (click)="collapsedEventEmitter()">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>About Otilia</span>
+    </a>
+    <a *ngIf="user"
+      [routerLinkActive]="['router-link-active']"
+      class="list-group-item col-4"
+      (click)="logout()">
+      <i class="fa-solid fa-fw fa-power-off"></i>
+      <span>Log out</span>
+    </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- <nav class="sidebar">
+
+  <div class="title">
+    <img src="../../../../assets/images/icon.png" alt="">
+    <p>Otilia</p>
+  </div>
+
+  <div class="list-group">
+    <div class="top-data">
+      <a
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item"
+        routerLink="/courses">
+        <i class="fa-solid fa-graduation-cap"></i>
+        &nbsp;
+        <span>
+          Cursos
+        </span>
+      </a>
+      <a
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item"
+        routerLink="/chat">
+        <i class="fa-solid fa-message"></i>
+        &nbsp;
+        <span>
+          Mis conversaciones
+        </span>
+      </a>
+      <a
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item">
+        <i class="fa-solid fa-gear"></i>
+        &nbsp;
+        <span>Configuracion</span>
+      </a>
+
+      <a  *ngIf="!user"
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item"
+        (click)="logIn()">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        &nbsp;
+        <span>Log in</span>
+      </a>
+
+      <a *ngIf="user"
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item"
+        (click)="logout()">
+        <i class="fa-solid fa-fw fa-power-off"></i>
+        &nbsp;
+        <span>{{user ? user.displayName : ''}}</span>
+        &nbsp;
+      </a>
+
+      <a
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item">
+        <i class="fa-solid fa-gear"></i>
+        &nbsp;
+        <span>About Otilia</span>
+      </a>
+      </div>
+  </div>
+</nav> -->

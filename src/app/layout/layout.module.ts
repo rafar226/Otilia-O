@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
-import {
-  NgbCarouselModule,
-  NgbDropdownModule,
-} from '@ng-bootstrap/ng-bootstrap';
-import { HeaderComponent } from './components/header/header.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../shared/loader';
-import { LoginModule } from '../login/login.module';
+import { SidebarDownComponent } from './components/sidebar-down/sidebar-down.component';
+import { LayoutRoutingModule } from './layout-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -19,10 +16,10 @@ import { LoginModule } from '../login/login.module';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    NgbCarouselModule,
-    LoaderComponent
+    LoaderComponent,
+    RouterModule
   ],
-  declarations: [LayoutComponent, HeaderComponent, SidebarComponent],
+  declarations: [LayoutComponent, SidebarComponent, SidebarDownComponent],
   providers: [],
 })
 export class LayoutModule {}

@@ -12,6 +12,7 @@ import { Course } from 'src/app/shared/course.model';
 export class CoursesComponent implements OnInit {
 @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
 courses: Course[] = [];
+filter: string = '';
 
   constructor(
     private router: Router,
@@ -25,54 +26,59 @@ courses: Course[] = [];
   createCourses() {
     this.courses = [
       {
-        name: 'Curso de respiración',
-        duration: '07:30 minutos',
+        name: 'Breathing course',
+        duration: '07:30 minutes',
         teacher: 'Leticia',
         opinions: [],
         rating: 5,
         link: 'https://www.youtube.com/embed/QBR0xgGwBoQ?si=kjeGNAWiUE_WsDyL',
-        img: './../../../assets/images/yoga.png',
-        front: './../../../assets/images/video-uno.png'
+        img: './../../../assets/images/video-uno.png',
+        front: './../../../assets/images/video-uno.png',
+        favorite: true
       },
       {
-        name: 'Curso de relajación',
-        duration: '11:30 minutos',
+        name: 'Relaxation course',
+        duration: '11:30 minutes',
         teacher: 'Leticia',
         opinions: [],
         rating: 3.5,
         link: 'https://www.youtube.com/embed/RBQyzF0Jzls?si=UBhEq4DpKWFBr6_Q',
-        img: './../../../assets/images/doctor.jpg',
-        front: './../../../assets/images/video-dos.png'
+        img: './../../../assets/images/video-dos.png',
+        front: './../../../assets/images/video-dos.png',
+        favorite: true
       },
       {
-        name: 'Ejercicio de piernas',
-        duration: '05:30 minutos',
+        name: 'Leg exercise',
+        duration: '05:30 minutes',
         teacher: 'Leticia',
         opinions: [],
         rating: 4.5,
         link: 'https://www.youtube.com/embed/mPl2-xjt5rE?si=s64-303U4JIRr6vY',
-        img: './../../../assets/images/doctor.jpg',
-        front: './../../../assets/images/video-tres.png'
+        img: './../../../assets/images/video-tres.png',
+        front: './../../../assets/images/video-tres.png',
+        favorite: false
       },
       {
-        name: 'Ejercicios de zona pélvica',
-        duration: '05:30 minutos',
+        name: 'Pelvic area exercises',
+        duration: '05:30 minutes',
         teacher: 'Leticia',
         opinions: [],
         rating: 4.5,
         link: 'https://www.youtube.com/embed/utpLRsW5IFs?si=UYnKQpi008Qc6JwP',
-        img: './../../../assets/images/fisio.jpg',
-        front: './../../../assets/images/video-dos.png'
+        img: './../../../assets/images/video-dos.png',
+        front: './../../../assets/images/video-dos.png',
+        favorite: false
       },
       {
-        name: 'Rutinas',
-        duration: '05:30 minutos',
+        name: 'Routines',
+        duration: '05:30 minutes',
         teacher: 'Leticia',
         opinions: [],
         rating: 4.5,
         link: 'https://www.youtube.com/embed/hBV2atgu-9c?si=wHfK6cDmHZQwhV6a',
-        img: './../../../assets/images/preparador.jpg',
-        front: './../../../assets/images/video-uno.png'
+        img: './../../../assets/images/video-uno.png',
+        front: './../../../assets/images/video-uno.png',
+        favorite: true
       }
     ]
   }
