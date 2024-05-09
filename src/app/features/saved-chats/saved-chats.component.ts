@@ -78,7 +78,6 @@ export class SavedChatsComponent implements OnInit, OnDestroy{
             Swal.fire('Saved');
           })
           .catch((err) => {
-            console.log(err);
             Swal.fire('Error')
         });
 

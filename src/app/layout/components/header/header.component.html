@@ -1,47 +1,124 @@
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand">
-      Otilia
-    </a>
-    <!-- <img [src]="companyLogo" class="company-logo" alt="" /> -->
-    <button (click)="toggleSidebar()" class="navbar-toggler" type="button">
-      <!-- <span class="navbar-toggler-icon"></span> -->
-      <i aria-hidden="true" class="fa fa-bars text-muted"></i>
-    </button>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
 
-        <li class="nav-item" ngbDropdown>
-          <a class="nav-link" tabindex="0" ngbDropdownToggle id="languageDropdown" role="button">
-            <i class="fa fa-language"></i>
-              Language
-            <b class="caret"></b>
+    <button #toggler class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="container-all">
+
+        <div class="title" routerLink="./">
+          <img src="../../../../assets/images/logo-final.ico" alt="">
+          <!-- <p>Otilia</p> -->
+        </div>
+
+        <div class="top-data ">
+          <div class="row">
+            <a
+            [routerLinkActive]="['router-link-active']"
+            class="list-group-item col-4"
+            routerLink="/courses" (click)="changeToggleStatus()">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+              Browse Tutorials
+            </span>
           </a>
-        </li>
-        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-          <a class="nav-link" tabindex="0" ngbDropdownToggle id="myAccountDropdown" role="button">
-            <i class="fa fa-user"></i>
-            {{user?.displayName}}
-            <b class="caret"></b>
+          <a
+            [routerLinkActive]="['router-link-active']"
+            class="list-group-item col-4"
+            routerLink="/chat" (click)="changeToggleStatus()">
+            <i class="fa-solid fa-message"></i>
+            <span>
+              My conversation
+            </span>
           </a>
-          <div ngbDropdownMenu aria-labelledby="myAccountDropdown" class="dropdown-menu">
-            <a ngbDropdownItem>
-              <i class="fa-solid fa-fw fa-info"></i>
-              Sobre Otilia
-            </a>
-            <!-- [routerLink]="['/login']" -->
-            <a ngbDropdownItem  *ngIf="!user" (click)="logIn()">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              Ingresar
-            </a>
-            <!-- [routerLink]="['/login']" -->
-            <a ngbDropdownItem  *ngIf="user" (click)="logout()">
-              <i class="fa-solid fa-fw fa-power-off"></i>
-              Salir
-            </a>
+          <a
+            [routerLinkActive]="['router-link-active']"
+            class="list-group-item col-4"
+            routerLink="/saved-chats" (click)="savedChatsWarning()">
+            <i class="fa-regular fa-comments"></i>
+            <span>
+              Saved chats
+            </span>
+          </a>
+          <a
+            [routerLinkActive]="['router-link-active']"
+            class="list-group-item col-4" (click)="changeToggleStatus()">
+            <i class="fa-solid fa-gear"></i>
+            <span>Configuration</span>
+          </a>
+          <a  *ngIf="!user"
+          [routerLinkActive]="['router-link-active']"
+          class="list-group-item col-4"
+          (click)="logIn()">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Log in</span>
+        </a>
+
+        <a *ngIf="user"
+          [routerLinkActive]="['router-link-active']"
+          class="list-group-item col-4" (click)="changeToggleStatus()">
+          <i class="fa-solid fa-user"></i>
+          <span>{{user ? user.displayName : ''}}</span>
+        </a>
+
+        <a
+          [routerLinkActive]="['router-link-active']"
+          class="list-group-item col-4" (click)="changeToggleStatus()">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About Otilia</span>
+        </a>
+        <a *ngIf="user"
+          [routerLinkActive]="['router-link-active']"
+          class="list-group-item col-4"
+          (click)="logout()">
+          <i class="fa-solid fa-fw fa-power-off"></i>
+          <span>Log out</span>
+        </a>
           </div>
+
+          <!-- <div class="row">
+            <a  *ngIf="!user"
+            [routerLinkActive]="['router-link-active']"
+            class="list-group-item col-4"
+            (click)="logIn()">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span>Log in</span>
+          </a>
+
+          <a *ngIf="user"
+            [routerLinkActive]="['router-link-active']"
+            class="list-group-item col-4">
+            <i class="fa-solid fa-user"></i>
+            <span>{{user ? user.displayName : ''}}</span>
+          </a>
+
+          <a
+            [routerLinkActive]="['router-link-active']"
+            class="list-group-item col-4">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>About Otilia</span>
+          </a>
+          <a *ngIf="user"
+            [routerLinkActive]="['router-link-active']"
+            class="list-group-item col-4"
+            (click)="logout()">
+            <i class="fa-solid fa-fw fa-power-off"></i>
+            <span>Log out</span>
+          </a>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-      </ul>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul> -->
     </div>
   </div>
 </nav>

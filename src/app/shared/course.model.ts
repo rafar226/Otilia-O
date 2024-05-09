@@ -11,5 +11,8 @@ export interface Course {
 }
 
 export interface Opinion {
+  opinionId: string;
   text: string;
+  user: string;
+  userId: string;
 }

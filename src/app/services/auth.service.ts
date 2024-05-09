@@ -1,12 +1,10 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth, authState, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { User, UserCredential, createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
+import { User, createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-// import { SuccessfulRegistrationMessageComponent } from '../components/modals/successful-registration-message/successful-registration-message.component';
-// import { UsersService } from 'src/app/features/users/services/users.service';
 import { LoginUserCommand } from '../login/login-form.model';
 import { UsersService } from './users.service';
 
@@ -72,17 +70,4 @@ export class AuthService {
       console.log('err', err)
     }
   }
-
-
-  // showSuccessfulRegistrationModal(nickname: string): void {
-  //   const modalRef = this.modalService.open(
-  //     SuccessfulRegistrationMessageComponent,
-  //     {
-  //       ariaLabelledBy: 'modal-basic-title',
-  //       centered: true,
-  //       size: 'md',
-  //     }
-  //   );
-  //   modalRef.componentInstance.nickname = nickname;
-  // }
 }

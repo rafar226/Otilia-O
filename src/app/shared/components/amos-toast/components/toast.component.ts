@@ -8,7 +8,7 @@ import { ToastService } from '../services';
   standalone: true,
   imports: [CommonModule, NgbToastModule],
   templateUrl: 'toast.component.html',
-  styleUrls: ['amos-toast.component.scss'],
+  styleUrls: ['toast.component.scss'],
 })
 export class ToastComponent {
   constructor(public toastService: ToastService) {}

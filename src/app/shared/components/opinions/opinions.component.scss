@@ -1,0 +1,33 @@
+$topnav-background-color: rgb(215, 137, 179);
+$topnav-background-color-hover: rgb(212, 86, 154);
+$letter-color: #fff;
+$secundary-border: rgb(81, 22, 116);
+
+.modal-body{
+  height: 55vh;
+  height: 55vh;
+}
+
+
+.save-button {
+  background: $topnav-background-color;
+  height: 40px;
+  align-content: center;
+  color: white;
+  margin: 15px auto;
+  width: 50%;
+  min-width: 100px;
+}
+
+:host ::ng-deep #rating {
+  margin-left: 3%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 5px;
+
+  span {
+    align-content: center;
+    color: #FCD535;
+    font-size: x-large;
+  }
+}

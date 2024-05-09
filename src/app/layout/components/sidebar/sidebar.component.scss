@@ -1,9 +1,6 @@
 
-// $topnav-background-color: rgb(117, 97, 146);
-// $topnav-background-color: rgb(209, 198, 255);
 $topnav-background-color: rgba(249, 250, 251, 1);
 $font-menu-color: rgba(16, 24, 40, 1);
-
 
 .sidebar {
   height: 100%;
@@ -59,10 +56,6 @@ $font-menu-color: rgba(16, 24, 40, 1);
       flex-wrap: wrap;
       margin-bottom: 40px;
     }
-
-    // .bottom-data {
-    //   display: flex;
-    // }
 
     a.list-group-item {
       background: none;
@@ -176,12 +169,3 @@ $font-menu-color: rgba(16, 24, 40, 1);
   border-radius: 3px;
   -webkit-box-shadow: inset 0 0 3px rgba(255, 255, 255, 1);
 }
-
-// @media screen and (max-width: 700px) {
-//   .sidebar {
-//     height: 50%;
-//     width: 500px;
-
-//   }
-
-// }

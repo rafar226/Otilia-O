@@ -8,6 +8,7 @@ import { LoaderComponent } from '../shared/loader';
 import { SidebarDownComponent } from './components/sidebar-down/sidebar-down.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { RouterModule } from '@angular/router';
     LoaderComponent,
     RouterModule
   ],
-  declarations: [LayoutComponent, SidebarComponent, SidebarDownComponent],
+  declarations: [LayoutComponent, SidebarComponent, SidebarDownComponent, HeaderComponent],
   providers: [],
 })
 export class LayoutModule {}

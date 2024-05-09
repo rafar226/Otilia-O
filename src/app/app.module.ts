@@ -9,15 +9,23 @@ import { ProfessionalComponent } from './features/professional/professional.comp
 import { LoaderComponent } from './shared/loader';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from 'src/environments/environment';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastComponent } from './shared/components/amos-toast';
+import { environment } from './environments/environments';
+import { AdminComponent } from './admin/admin/admin.component';
+import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
+import { NewNoteComponent } from './admin/new-note/new-note.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfessionalComponent
+    ProfessionalComponent,
+    AdminComponent,
+    NewNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +37,8 @@ import { ToastComponent } from './shared/components/amos-toast';
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    ToastComponent
+    ToastComponent,
+    FormsModule
   ],
   providers: [ToastComponent],
   bootstrap: [AppComponent]

@@ -2,15 +2,13 @@ $primary: rgb(81, 22, 116);
 $secundary: rgb(159, 77, 206);
 $topnav-background-color: rgb(215, 137, 179);
 
-
 .container-all {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
-  height: 99vh;
+  height: 100%;
   width: calc(100vw - 250px);
-  position: fixed;
 }
 
 .bg {
@@ -19,20 +17,26 @@ $topnav-background-color: rgb(215, 137, 179);
   position: absolute;
   z-index: -1;
   width: calc(100vw - 250px);
-  height: 99vh;
+  height: 100svh;
 }
 
 .button-container {
-  z-index: 2;
+  z-index: 1;
   display: flex;
-  height: 7%;
-  min-height: 40px;
+  height: 50px;
+  align-items: center;
+  width: 95%;
+  justify-content: flex-end;
 
   button {
-    margin-right: 10px;
     border-radius: 10px;
     background: $topnav-background-color;
     color: #fff;
+    height: 40px;
+  }
+
+  button:first-child {
+    margin-right: 10px;
   }
 }
 
@@ -40,10 +44,16 @@ $topnav-background-color: rgb(215, 137, 179);
 .chat-text {
   width: 95%;
   overflow: scroll;
-  height: 73%;
+  height: calc(100% - 125px);
   display: flex;
-  bottom: 15px;
-  position: relative;
+}
+
+.input-container {
+  display: flex;
+  width: 95%;
+  height: 50px;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .timer {
@@ -97,7 +107,6 @@ li {
 
   img {
     border-radius: 50%;
-
   }
 }
 
@@ -160,15 +169,6 @@ li {
   }
 }
 
-.input-container {
-  display: flex;
-  width: 65%;
-  align-items: center;
-  bottom: 15px;
-  position: relative;
-  height: 11%;
-}
-
 .input {
   width: calc(100% - 110px);
   border: 1px solid lightgrey;
@@ -179,16 +179,9 @@ li {
   border-radius: 10px;
 }
 
-
 @media screen and (max-width: 700px) {
   .container-all {
     width: 100vw;
-    height: 94vh;
-  }
-
-  .input-container {
-    width: 90%;
-    bottom: 30px;
   }
 
   .bg {
@@ -196,6 +189,12 @@ li {
   }
 
   .timer {
-      right: -92%;
+    right: -92%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .button-container button {
+    font-size: smaller;
   }
 }

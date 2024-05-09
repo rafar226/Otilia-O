@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add new task</h4>
+
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="dismissModal()"
+  ></button>
+</div>
+<div class="modal-body">
+
+  <div data-mdb-input-init class="form-outline">
+    <label class="form-label" for="textAreaExample">Note</label>
+    <textarea class="form-control" id="textAreaExample1" rows="4" [(ngModel)]="text"></textarea>
+  </div>
+
+  <div data-mdb-input-init class="form-outline mt-2">
+    <label class="form-label" for="textAreaExample">Status</label>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="status">
+      <option selected>None </option>
+      <option value="To do">To do</option>
+      <option value="In progress">In progress</option>
+      <option value="Done">Done</option>
+    </select>
+  </div>
+
+  <button class="form-control btn btn-primary save-button" (click)="closeModal()">Save</button>
+</div>

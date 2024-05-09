@@ -46,16 +46,6 @@ export class UsersService {
     }
     const createdUserRef = collection(this.firestore, 'Users');
     return addDoc(createdUserRef, user)
-    // .then(newUser => {
-
-      // this.getAllUsers().subscribe(users => {
-      //   const currentUser = users.find(x => x.uid === this.userUid);
-      //   if(currentUser) {
-      //     this.currentUserOtilia = currentUser;
-      //     this.setCurrentUserOtilia(currentUser);
-      //   }
-      // })
-    // });
   }
 
   getAllUsers(): Observable<UserOtilia[]> {
@@ -67,10 +57,6 @@ export class UsersService {
     const createdUserRef = collection(this.firestore, `Users/${uId}`);
     return (createdUserRef)
   }
-
-  // setCurrentUserOtilia(currentUserOtilia: UserOtilia) {
-  //   this.currentUserOtilia = currentUserOtilia;
-  // }
 
   setCurrentUser(currentUser: User) {
     this.currentUser = currentUser;
@@ -88,5 +74,4 @@ export class UsersService {
   getCurrentUserOtilia(){
     return this.currentUserOtilia$;
   }
-
 }

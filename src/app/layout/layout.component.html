@@ -5,11 +5,7 @@
   </section>
 
   <section class="siderbar-down-container" [ngClass]="collapsed ? 'collapse-active' : 'collapse-not-active'">
-    <span class="collapse-circle" (click)="collapse()">
-      <i class="fa-solid fa-angles-up" *ngIf="!collapsed"></i>
-      <i class="fa-solid fa-angles-down" *ngIf="collapsed"></i>
-    </span>
-    <app-sidebar-down [user]="user" [collapsed]="collapsed" (collapsedEvent)="collapse($event)"></app-sidebar-down>
+    <app-header [user]="user"></app-header>
   </section>
 
   <section class="main-container">

@@ -4,7 +4,6 @@ import { Conversation, UserConveration } from './conversation.model';
 import { AuthService } from 'src/app/services';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { User } from '@angular/fire/auth';
-import { ToastService } from 'src/app/shared/components/amos-toast';
 import { HttpClient } from '@angular/common/http';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
 import { UserOtilia } from 'src/app/shared/user-Otilia.model';
@@ -234,5 +233,4 @@ export class ChatComponent {
       }
     });
   }
-
 }

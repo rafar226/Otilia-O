@@ -21,8 +21,6 @@
 
   <div class="videos-container">
     <div class="card-group" *ngFor="let course of courses | filter: 'name' : filter">
-
-
       <div class="card">
         <span class="heart-icon-container" [ngClass]="course.favorite === true ? 'heart-icon-active' : 'heart-icon-not-active'">
           <i class="fa-solid fa-heart"></i>
@@ -30,41 +28,19 @@
         <img src="{{ course.img }}" class="card-img-top" alt="..." (click)="goToCourse(course)">
         <div class="card-body">
           <h5 class="card-title">{{ course.name }}</h5>
-          <p class="card-text">Course description.</p>
-          <p class="card-text"><small class="text-body-secondary clock-icon">{{ course.duration }}</small></p>
+          <p class="card-text">
+            <small class="text-body-secondary">About this tutorial</small>
+            <small class="text-body-secondary opinion-text opinion" (click)="goToOpinions(course.opinions)">Opinions (</small>
+            <small class="opinion-text">{{ course.opinions.length }}</small>
+            <small class="opinion-text">)</small>
+          </p>
+          <p class="card-text">
+            <small class="text-body-secondary clock-icon">{{ course.duration }}</small>
+            <ngb-rating [rate]="course.rating" id="rating" />
+            <small class="text-body-secondary"> {{ course.rating }}</small>
+          </p>
         </div>
       </div>
     </div>
   </div>
-
-
-
 </div>
-
-
-<!--
-<div class="courses-container" #scrollContainer>
-
-  <div class="scroll-buttons-container">
-    <i class="fa-solid fa-circle-left" (click)="left()"></i>
-    <i class="fa-solid fa-circle-right" (click)="right()"></i>
-  </div>
-
-    <div *ngFor="let course of courses">
-      <button class="btn go-course" (click)="goToCourse(course)">Ir al curso</button>
-
-      <img width="100%" height="100%" src="{{course.front}}" class="front-img">
-
-      <div class="details">
-        <img src="{{ course.img }}" class="option-img">
-
-        <div class="course-detail">
-          <span>{{ course.name }}</span>
-          <span>Puntuación: {{ course.rating }}</span>
-          <span>Por: {{ course.teacher }}</span>
-        </div>
-      </div>
-
-
-    </div>
-  </div> -->

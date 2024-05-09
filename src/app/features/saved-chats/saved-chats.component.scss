@@ -1,3 +1,7 @@
+$primary: rgb(81, 22, 116);
+$secundary: rgb(159, 77, 206);
+$topnav-background-color: rgb(215, 137, 179);
+
 .container-all {
   position: relative;
   display: flex;
@@ -12,24 +16,26 @@
   position: absolute;
   z-index: -1;
   width: calc(100vw - 250px);
-  height: 99vh;
+  height: 100svh;
 }
 
 .title-container {
   display: flex;
-  width: 80%;
-  padding-left: 20px;
-  margin: 15px 0;
+  width: 95%;
   flex-wrap: wrap;
+  height: 10%;
+  justify-content: flex-end;
+  align-items: center;
 
   h4 {
+    width: auto;
+    padding: 0 10px;
     text-align: start;
-  }
-
-  span {
-    display: flex;
-    width: 90%;
-    font-size: small;
+    border-radius: 10px;
+    background: $topnav-background-color;
+    height: 40px;
+    align-content: center;
+    color: white;
   }
 }
 
@@ -39,9 +45,16 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  height: 70%;
+  height: 90%;
   overflow: scroll;
   align-content: flex-start;
+  padding: 10px;
+
+  span {
+    display: flex;
+    width: 90%;
+    font-size: small;
+  }
 }
 
 .container-chats::-webkit-scrollbar {
@@ -49,11 +62,12 @@
 }
 
 .chat {
-  width: 250px;
+  max-width: 250px;
   height: auto;
   min-height: 50px;
   line-height: 25px;
-  border: 1px solid grey;
+  border-radius: 10px;
+  background: $topnav-background-color;
   display: flex;
   margin: 10px;
   align-items: center;
@@ -62,6 +76,7 @@
   flex-wrap: wrap;
 
   span {
+    color: white;
     margin-left: 4px;
   }
 }

@@ -44,13 +44,7 @@ export class ChatService {
 
         allData.push(newData);
       })
-    })
-
-    // setTimeout(() => {
-    //   console.log(allData)
-
-    // }, 3000)
-
+    });
   }
 
   shareData(text: string) {

@@ -4,12 +4,11 @@ $letter-color: #fff;
 $secundary-border: rgb(81, 22, 116);
 
 .video-container {
-  // height: calc(30vh - $header-height);
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: calc(100vw - 250px);
+  height: 100%;
 }
 
 .bg {
@@ -18,26 +17,36 @@ $secundary-border: rgb(81, 22, 116);
   position: absolute;
   z-index: -1;
   width: calc(100vw - 250px);
-  height: 99vh;
+  height: 100svh;
 }
 
 .title-container {
   display: flex;
-  width: 80%;
-  padding-left: 20px;
-  margin: 15px 0;
+  width: 95%;
+  flex-wrap: wrap;
+  height: 70px;
+  justify-content: flex-end;
+  align-items: center;
 
   h4 {
+    width: auto;
+    padding: 0 10px;
     text-align: start;
+    border-radius: 10px;
+    background: $topnav-background-color;
+    height: 40px;
+    align-content: center;
+    color: white;
   }
 }
 
 .input-container {
-  padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
   width: 95%;
-  margin-bottom: 20px;
+  height: 100px;
+  margin: 0 auto;
+
 }
 
 .filter-container {
@@ -57,6 +66,7 @@ $secundary-border: rgb(81, 22, 116);
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
+  height: calc(100% - 180px);
 }
 
 .videos-container::-webkit-scrollbar {
@@ -69,6 +79,7 @@ $secundary-border: rgb(81, 22, 116);
     border: none;
     width: 280px;
     margin: 10px;
+    max-height: 280px;
 
     img {
       border-radius: 15px;
@@ -111,6 +122,30 @@ $secundary-border: rgb(81, 22, 116);
   background: $topnav-background-color;
 }
 
+.card-text {
+  .text-body-secondary:last-child {
+    font-size: inherit;
+  }
+
+  .opinion {
+    margin-left: 20%;
+    cursor: pointer;
+  }
+
+  .opinion-text {
+    color: green !important;
+    font-weight: bold;
+  }
+}
+
+:host ::ng-deep #rating {
+  margin-left: 20%;
+  span {
+    color: #FCD535;
+    font-size: x-large;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .video-container {
     width: 100vw;
@@ -120,83 +155,3 @@ $secundary-border: rgb(81, 22, 116);
     width: 100%;
   }
 }
-// .courses-container {
-//   width: 90%;
-//   display: flex;
-//   overflow: scroll;
-//   overflow-x: scroll;
-//   height: 300px;
-
-//   .front-img {
-//     width: 280px;
-//     height: 150px;
-//     margin-right: 15px;
-//     white-space: nowrap;
-//     border-radius: 10px;
-//   }
-// }
-
-// .course-detail {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   margin-right: 15px;
-
-//   span {
-//     font-size: small;
-//   }
-// }
-
-// .option-img {
-//   width: 50px;
-//   height: 50px;
-//   border-radius: 50px;
-// }
-
-// .go-course {
-//   cursor: pointer;
-//   position: relative;
-//   top: 140px;
-//   left: 25%;
-//   background: rgb(215, 137, 179);
-//   color: white;
-//   width: 50%;
-// }
-
-// .courses-container::-webkit-scrollbar {
-//   display: none;
-// }
-
-// .details {
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-// }
-
-// .scroll-buttons-container {
-//   width: 100%;
-//   position: absolute;
-//   top: 160px;
-//   display: flex;
-//   justify-content: space-between;
-//   background: none;
-//   left: 0px;
-//   padding: 0 10px;
-
-//   i {
-//     color: $topnav-background-color;
-//     font-size: 40px;
-//     cursor: pointer;
-//     background: white;
-//     border-radius: 40px;
-//   }
-// }
-
-// @media screen and (max-width: 800px) {
-//   .scroll-buttons-container {
-//     display: none;
-//   }
-//   .courses-container {
-//     width: 95%;
-//   }
-// }

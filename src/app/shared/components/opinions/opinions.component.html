@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <h4 class="modal-title">Opinions and ratings</h4>
+
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="dismissModal()"
+  ></button>
+</div>
+<div class="modal-body">
+
+
+  <div class="row row-cols-1 row-cols-md-2 g-4" *ngFor="let opinion of opinions">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{opinion.user}}</h5>
+          <p class="card-text"> {{opinion.text}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+
+  <div id="raiting">
+    <span>Add rating: <b>{{ rating }}</b></span>
+    <ngb-rating [(rate)]="rating" id="rating" />
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-text">Add opinion</span>
+    <textarea [(ngModel)]="newOpinion" class="form-control" aria-label="With textarea"></textarea>
+  </div>
+
+  <button class="form-control save-button" (click)="closeModal()">Save</button>
+</div>

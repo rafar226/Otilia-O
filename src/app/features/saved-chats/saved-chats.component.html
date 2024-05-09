@@ -4,11 +4,11 @@
 
   <div class="title-container">
     <h4>Saved chats</h4>
-
-    <span *ngIf="userOtilia?.conversations">You have {{ userOtilia?.conversations?.length }} saved chats.</span>
   </div>
 
   <div class="container-chats">
+    <span *ngIf="userOtilia?.conversations">You have {{ userOtilia?.conversations?.length }} saved chats.</span>
+
     <div *ngFor="let chat of chats">
         <div class="chat">
           <div class="span-option">
